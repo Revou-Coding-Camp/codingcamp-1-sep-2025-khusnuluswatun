@@ -1,12 +1,9 @@
-// console.log("wwa");
-// swal("Hello world!");
 let allToDoList = [];
 
 addListToTable();
 function addTodo() {
   const todo = document.getElementById("input-todo").value;
   const date = document.getElementById("input-date").value;
-  console.log(todo, date);
   if (todo == "" || date == "") {
     swal("", "Task and date is required!", "warning");
   } else {
@@ -19,7 +16,6 @@ function addTodo() {
 }
 
 function addListToTable() {
-  console.log("list: ", allToDoList, allToDoList.length);
   let tr = "";
   if (allToDoList.length > 0) {
     allToDoList.forEach((e, i) => {
@@ -100,7 +96,6 @@ function deleteTask(btn, i) {
     if (willDelete) {
       btn.closest("tr").remove();
       let checkTask = document.getElementsByClassName("tr-task").length;
-      console.log("ok", i);
       allToDoList.splice(i, 1);
       if (checkTask == 0) {
         document.getElementById(
@@ -125,7 +120,6 @@ function filterTableTask() {
       check++;
     }
   });
-  console.log("hai - ", check, rows.length, rows);
   if (check == rows.length) {
     if (document.getElementsByClassName("tr-empty").length == 0) {
       document.getElementById("bag-tbody-tr-list").insertAdjacentHTML(
